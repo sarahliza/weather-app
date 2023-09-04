@@ -42,7 +42,8 @@ a:hover {
 }
 
 a,
-.pin {
+.pin,
+.codeLink {
   color: #5c636b;
 }
 
@@ -87,4 +88,9 @@ a,
 .hi-lo,
 .days {
   margin: 0 auto;
+}
+
+.codeLink {
+  font-size: smaller;
+  padding-top: 5px;
 }
