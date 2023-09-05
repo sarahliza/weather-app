@@ -57,16 +57,22 @@
             </form>
 
             <h1 id="city-output">-</h1>
+            <h2 class="country" id="country-output">-</h2>
             <div class="update-info">
               <div>Last updated: <span id="live-time">-</span></div>
-              <div class="mb-4" id="weather-description">-</div>
+              <div class="mb-4 weather-desc" id="weather-description">-</div>
             </div>
 
             <div class="row">
               <div class="col-8">
                 <h2 class="main-temp">
-                  <i class="fa-solid fa-cloud-sun"></i>
-                  <span id="temperature">-</span>
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                    width="80px"
+                    class="main-icon"
+                    id="main-icon"
+                  />
+                  <span class="large-temp" id="temperature">-</span>
                   <span class="deg-far"
                     ><a href="#" id="cels">°C</a> |
                     <a href="#" id="fahr">°F</a></span
@@ -125,8 +131,7 @@
           </div>
         </div>
       </div>
-
-      <div class="codeLink">
+      <div class="code-link">
         <a href="https://github.com/sarahliza/weather-app.git" target="_blank"
           >Open-source code</a
         >

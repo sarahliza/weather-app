@@ -18,6 +18,11 @@ body {
   background-color: #dee2e6;
 }
 
+h2,
+.country {
+  font-size: 16pt;
+}
+
 ul,
 .deg-far,
 .hi-lo,
@@ -43,7 +48,7 @@ a:hover {
 
 a,
 .pin,
-.codeLink {
+.code-link {
   color: #5c636b;
 }
 
@@ -72,13 +77,26 @@ a,
 }
 
 .main-temp {
-  font-size: 50px;
+  font-size: 60px;
 }
+
+.large-temp {
+  position: relative;
+  bottom: 5px;
+}
+
+img,
+.main.icon {
+  position: relative;
+  bottom: 8px;
+}
+
 .deg-far {
   font-size: 16px;
   font-weight: 400;
   position: relative;
-  bottom: 25px;
+  bottom: 35px;
+  right: 10px;
 }
 
 .days {
@@ -90,7 +108,11 @@ a,
   margin: 0 auto;
 }
 
-.codeLink {
+.code-link {
   font-size: smaller;
   padding-top: 5px;
+}
+
+.weather-desc:first-letter {
+  text-transform: capitalize;
 }
