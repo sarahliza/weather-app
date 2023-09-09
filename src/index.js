@@ -33,6 +33,8 @@ function showWeatherData(response) {
   console.log(response);
 
   celsiusTemperature = response.data.temperature.current;
+  showFahrenheit.classList.remove("active");
+  showCelsius.classList.add("active");
 
   document.querySelector("#city-output").innerHTML = response.data.city;
 
