@@ -50,6 +50,12 @@ function showWeatherData(response) {
   );
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
+
+  let mainIcon = document.querySelector("#main-icon");
+  mainIcon.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 
 function searchCity(city) {
