@@ -22,13 +22,6 @@ function formatDate(date) {
   return `${currentDay} ${currentHour}:${currentMinute}`;
 }
 
-let time = document.querySelector("#live-time");
-time.innerHTML = formatDate(new Date());
-
-//week 4 - Add a search engine: a search bar with a button. When searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
-//week 5 - when a user searches for a city (example: New York), it should display the name of the city on the result page and the current temperature of the city.
-//week 5 - Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
-
 function showWeatherData(response) {
   console.log(response);
 
@@ -91,14 +84,6 @@ function searchLocation(event) {
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 
-let locationSearch = document.querySelector("#pin-location");
-locationSearch.addEventListener("click", searchLocation);
-
-let citySearch = document.querySelector("#search-city-form");
-citySearch.addEventListener("submit", handleSubmit);
-
-//week 4 - Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
-
 function changeToCelsius(event) {
   event.preventDefault();
   let temperatureOutput = document.querySelector("#temperature");
@@ -117,6 +102,15 @@ function changeToFahrenheit(event) {
 }
 
 let celsiusTemperature = null;
+
+let time = document.querySelector("#live-time");
+time.innerHTML = formatDate(new Date());
+
+let locationSearch = document.querySelector("#pin-location");
+locationSearch.addEventListener("click", searchLocation);
+
+let citySearch = document.querySelector("#search-city-form");
+citySearch.addEventListener("submit", handleSubmit);
 
 let showCelsius = document.querySelector("#cels");
 showCelsius.addEventListener("click", changeToCelsius);
