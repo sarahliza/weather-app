@@ -32,13 +32,15 @@ time.innerHTML = formatDate(new Date());
 function showWeatherData(response) {
   console.log(response);
 
+  celsiusTemperature = response.data.temperature.current;
+
   document.querySelector("#city-output").innerHTML = response.data.city;
 
   document.querySelector("#country-output").innerHTML = response.data.country;
 
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
+
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.temperature.feels_like
   );
@@ -93,24 +95,31 @@ locationSearch.addEventListener("click", searchLocation);
 let citySearch = document.querySelector("#search-city-form");
 citySearch.addEventListener("submit", handleSubmit);
 
-searchCity("Sydney");
-
 //week 4 - Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 
 function changeToCelsius(event) {
   event.preventDefault();
   let temperatureOutput = document.querySelector("#temperature");
-  temperatureOutput.innerHTML = 17;
+  temperatureOutput.innerHTML = Math.round(celsiusTemperature);
+  showFahrenheit.classList.remove("active");
+  showCelsius.classList.add("active");
 }
 
 function changeToFahrenheit(event) {
   event.preventDefault();
   let temperatureOutput = document.querySelector("#temperature");
-  temperatureOutput.innerHTML = 63;
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureOutput.innerHTML = Math.round(fahrenheitTemp);
+  showCelsius.classList.remove("active");
+  showFahrenheit.classList.add("active");
 }
+
+let celsiusTemperature = null;
 
 let showCelsius = document.querySelector("#cels");
 showCelsius.addEventListener("click", changeToCelsius);
 
 let showFahrenheit = document.querySelector("#fahr");
 showFahrenheit.addEventListener("click", changeToFahrenheit);
+
+searchCity("Sydney");

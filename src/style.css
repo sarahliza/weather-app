@@ -116,3 +116,12 @@ img,
 .weather-desc:first-letter {
   text-transform: capitalize;
 }
+
+.main-temp .active {
+  color: #212529;
+  cursor: default;
+}
+
+.main-temp .active:hover {
+  text-decoration: none;
+}
