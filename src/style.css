@@ -29,20 +29,6 @@ h2,
   font-size: 16pt;
 }
 
-ul,
-.deg-far,
-.hi-lo,
-.day,
-.update-info {
-  color: #5c636b;
-  font-weight: 300;
-}
-
-ul {
-  list-style-type: none;
-  padding-inline-start: 0px;
-}
-
 a {
   text-decoration: none;
 }
@@ -65,8 +51,29 @@ a,
   color: #0e6efd;
 }
 
+img,
+.main.icon {
+  position: relative;
+  bottom: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+ul,
+.deg-far,
+.hi-lo,
+.day,
+.update-info {
+  color: #5c636b;
+  font-weight: 300;
+}
+
 .weather-forecast {
   text-align: center;
+  margin: 0 auto;
 }
 
 .small-icon {
@@ -75,13 +82,17 @@ a,
 }
 
 .day-forecast {
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #dee2e6;
   border-radius: 8px;
   width: 100%;
   padding: 10px 0px;
   margin-right: 0px;
   margin-left: 0px;
+}
+
+.day-forecast:hover {
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
+  transition: all 200ms ease;
 }
 
 .main-temp {
@@ -91,12 +102,6 @@ a,
 .large-temp {
   position: relative;
   bottom: 5px;
-}
-
-img,
-.main.icon {
-  position: relative;
-  bottom: 8px;
 }
 
 .deg-far {
@@ -111,9 +116,8 @@ img,
   font-weight: 400;
 }
 
-.hi-lo,
-.days {
-  margin: 0 auto;
+.hi-lo {
+  font-size: smaller;
 }
 
 .code-link {
