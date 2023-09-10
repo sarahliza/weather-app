@@ -101,6 +101,38 @@ function changeToFahrenheit(event) {
   showFahrenheit.classList.add("active");
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row mt-3">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                <div class="col-2">
+                  <div class="day-forecast">
+                    <div class="day">${day}</div>
+                    <img
+                      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                      width="50px"
+                      class="small-icon"
+                      id="small-icon"
+                    />
+                    <div class="hi-lo">
+                      <span class="hi-temp"><strong>Hi°</strong></span>
+                      <span class="lo-temp"></span>Lo°
+                    </div>
+                  </div>
+                </div>
+              `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celsiusTemperature = null;
 
 let time = document.querySelector("#live-time");
@@ -119,3 +151,4 @@ let showFahrenheit = document.querySelector("#fahr");
 showFahrenheit.addEventListener("click", changeToFahrenheit);
 
 searchCity("Sydney");
+displayForecast();
