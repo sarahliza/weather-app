@@ -23,7 +23,7 @@ function formatDate(date) {
 }
 
 function showWeatherData(response) {
-  console.log(response);
+  //console.log(response);
 
   celsiusTemperature = response.data.temperature.current;
   showFahrenheit.classList.remove("active");
@@ -57,10 +57,13 @@ function showWeatherData(response) {
 
 function searchCity(city) {
   let apiKey = "a46b04tcc0o38a3fad3e90b0cb70d454";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrlMain = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(showWeatherData);
+  axios.get(apiUrlMain).then(showWeatherData);
   //console.log(apiUrl);
+  axios.get(apiUrlForecast).then(displayForecast);
+  //console.log(apiUrlForecast);
 }
 
 function handleSubmit(event) {
@@ -73,10 +76,13 @@ function showLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "a46b04tcc0o38a3fad3e90b0cb70d454";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
-  //console.log(apiUrl);
+  let apiUrlMain = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(showWeatherData);
+  axios.get(apiUrlMain).then(showWeatherData);
+  //console.log(apiUrlMain);
+  axios.get(apiUrlForecast).then(displayForecast);
+  //console.log(apiUrlForecast);
 }
 
 function searchLocation(event) {
@@ -101,7 +107,9 @@ function changeToFahrenheit(event) {
   showFahrenheit.classList.add("active");
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -151,4 +159,3 @@ let showFahrenheit = document.querySelector("#fahr");
 showFahrenheit.addEventListener("click", changeToFahrenheit);
 
 searchCity("Sydney");
-displayForecast();
