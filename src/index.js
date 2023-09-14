@@ -1,5 +1,3 @@
-//week 4 - In your project, display the current date and time using JavaScript: Tuesday 16:00
-
 function formatDate(date) {
   let days = [
     "Sunday",
@@ -26,8 +24,6 @@ function showWeatherData(response) {
   //console.log(response);
 
   celsiusTemperature = response.data.temperature.current;
-  showFahrenheit.classList.remove("active");
-  showCelsius.classList.add("active");
 
   document.querySelector("#city-output").innerHTML = response.data.city;
 
@@ -94,8 +90,6 @@ function changeToCelsius(event) {
   event.preventDefault();
   let temperatureOutput = document.querySelector("#temperature");
   temperatureOutput.innerHTML = Math.round(celsiusTemperature);
-  showFahrenheit.classList.remove("active");
-  showCelsius.classList.add("active");
 }
 
 function changeToFahrenheit(event) {
@@ -103,8 +97,6 @@ function changeToFahrenheit(event) {
   let temperatureOutput = document.querySelector("#temperature");
   let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   temperatureOutput.innerHTML = Math.round(fahrenheitTemp);
-  showCelsius.classList.remove("active");
-  showFahrenheit.classList.add("active");
 }
 
 function formatDay(timestamp) {
@@ -165,11 +157,5 @@ locationSearch.addEventListener("click", searchLocation);
 
 let citySearch = document.querySelector("#search-city-form");
 citySearch.addEventListener("submit", handleSubmit);
-
-let showCelsius = document.querySelector("#cels");
-showCelsius.addEventListener("click", changeToCelsius);
-
-let showFahrenheit = document.querySelector("#fahr");
-showFahrenheit.addEventListener("click", changeToFahrenheit);
 
 searchCity("Sydney");
